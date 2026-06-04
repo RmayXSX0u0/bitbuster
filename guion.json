@@ -1,0 +1,36 @@
+{
+    "ramon": {
+        "inicia la clase de economia": {
+            "texto": "¡Hola a todos! Bienvenidos a la clase de economía. Hoy hablaremos de las inversiones. Invertir es destinar dinero o tiempo a un proyecto con el objetivo de obtener un beneficio futuro. Básicamente, es renunciar a gastar hoy, para ganar más mañana. ¿Quieren escuchar un ejemplo o pasamos a los tipos de inversión?",
+            "accion": "hablar_al_frente"
+        },
+        "dame un ejemplo": {
+            "texto": "Va. Imagina que inviertes 10 mil pesos en una cuenta que ofrece rendimientos. Después de un año, tendrás más dinero gracias a los intereses. Eso es una inversión trabajando para ti. Diga 'siguiente' para ver los tipos.",
+            "accion": "explicar_con_manos"
+        },
+        "tipos de inversion": {
+            "texto": "Perfecto. Existen cuatro tipos principales. Las financieras, como las acciones. Las reales, como comprar un terreno. Las públicas, que hace el gobierno como los hospitales. Y las privadas, como cuando un emprendedor abre un negocio. ¿Todo claro hasta aquí? Diga 'riesgo' para la última parte.",
+            "accion": "contar_con_dedos"
+        },
+        "riesgo": {
+            "texto": "El concepto más importante de hoy es la relación entre riesgo y rendimiento. La regla es: A mayor riesgo, mayor posibilidad de ganar, pero también de perder. Por ejemplo, las criptomonedas son de muy alto riesgo, mientras que una cuenta de ahorro es de riesgo bajo. Con esto terminamos la teoría. Diga 'iniciar quiz' para ponernos a prueba.",
+            "accion": "apuntar_pizarron"
+        },
+        "iniciar quiz": {
+            "texto": "¡Venga! Pregunta 1: ¿Qué es una inversión? Opción A: Gastar dinero en productos. Opción B: Destinar recursos para obtener beneficios futuros. ¿A o B?",
+            "accion": "preguntar"
+        },
+        "opcion b": {
+            "texto": "¡Correcto! Excelente memoria. Vamos con la Pregunta 2: Comprar acciones de una empresa... ¿es una inversión financiera o una inversión pública? Dime la palabra.",
+            "accion": "feliz"
+        },
+        "financiera": {
+            "texto": "¡Exacto, es financiera! Última pregunta para el 10: Según la regla del riesgo, si asumes Mayor riesgo, ¿qué pasa con el rendimiento? ¿Es menor o mayor?",
+            "accion": "asentir"
+        },
+        "mayor rendimiento": {
+            "texto": "¡Estás al cien! Aprobaste la clase de economía con excelencia. Ya tienes las bases de las inversiones. Hasta la próxima clase.",
+            "accion": "celebrar"
+        }
+    }
+}
