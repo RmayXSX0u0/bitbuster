@@ -20,7 +20,7 @@ cable_udp = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 bloqueo_cooldown = False
 
-def limpiar_audios():
+def limpiar_audios(): #Limpia los audios para que no hayan errores en el habla
     print("[1/4] Limpiando audios de clases anteriores...")
     archivos = glob.glob(os.path.join(CARPETA_AUDIOS, "*.mp3"))
     for f in archivos:
@@ -41,11 +41,10 @@ def pre_renderizar_audios(guion_datos):
             datos["ruta_audio"] = "NONE"
             
             if texto.strip():
-                nombre_limpio = avatar.replace(" ", "_")
+                nombre_limpio = avatar.replace(" ", "_") #limpia el texto 
                 frase_limpia = frase_clave.replace(" ", "_").replace("?", "").replace("¿", "")
                 ruta_audio = os.path.join(CARPETA_AUDIOS, f"resp_{nombre_limpio}_{frase_limpia}.mp3")
                 
-                # Solo genera el audio si no existe, acelera el arranque
                 if not os.path.exists(ruta_audio):
                     print(f"Generando voz para: '{frase_clave}'")
                     tts = gTTS(text=texto, lang='es', tld='com.mx')
@@ -57,11 +56,10 @@ def pre_renderizar_audios(guion_datos):
 def enviar_orden_unity(avatar, ruta_audio, accion, longitud_texto):
     global bloqueo_cooldown
     mensaje = f"{avatar}|{ruta_audio}|{accion}"
-    cable_udp.sendto(mensaje.encode('utf-8'), (IP_UNITY, PUERTO_UNITY))
+    cable_udp.sendto(mensaje.encode('utf-8'), (IP_UNITY, PUERTO_UNITY)) #envia comandos de movimiento a unity
     print(f"\n[UNITY] Animación ejecutada: {accion}")
     
-    # LOGICA NUEVA: Calculo estimado de tiempo hablado (14 caracteres por segundo aprox)
-    # Así no usamos un sleep fijo de 5s, el profe espera exactamente lo que dura su línea.
+
     tiempo_espera = max(3.0, len(longitud_texto) / 14.0)
     time.sleep(tiempo_espera)
     
@@ -75,9 +73,9 @@ def escuchar_y_procesar(guion_datos):
     global bloqueo_cooldown
     r = sr.Recognizer()
 
-    # LOGICA NUEVA: Calibración dinámica para que NO se trabe el bucle
+
     r.energy_threshold = 300  
-    r.dynamic_energy_threshold = True # Permite adaptarse al ruido del salón/cuarto
+    r.dynamic_energy_threshold = True 
     r.pause_threshold = 0.8 # Responde más rápido cuando el usuario termina de hablar
     
     print("[3/4] Cargando modelo Whisper...")
@@ -109,7 +107,7 @@ def escuchar_y_procesar(guion_datos):
                             frase_limpia_diccionario = frase_clave.lower()
                             similitud = calcular_similitud(texto_limpio, frase_limpia_diccionario)
                             
-                            # Subimos el umbral a 0.70 para que en los quiz no agarre respuestas al azar
+                            # umbral a 0.70 para que en los quiz no agarre respuestas al azar
                             if frase_limpia_diccionario in texto_limpio or similitud > 0.70:
                                 print(f"*** Match detectado: '{frase_clave}' ***")
                                 
