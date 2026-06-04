@@ -77,7 +77,8 @@ Una interacción completa sigue estos pasos:
 ├── guion.json         # Base de conocimiento: frases clave → respuesta + animación
 ├── Link.txt           # Enlace de descarga del proyecto Unity (avatar e interfaz)
 ├── README.md          # Este archivo
-└── audios_generados/  # (se crea en tiempo de ejecución) cache de .mp3 con TTS
+├── audios_generados/  # (se crea en tiempo de ejecución) cache de .mp3 con TTS
+└── V2.py              # Se ejecuta desde la terminal sin necesidad del link
 ```
 
 El archivo `Link.txt` apunta a una descarga en SharePoint con el **avatar y la interfaz visual** de Unity. Ese paquete es obligatorio para que el prototipo funcione: sin él, Python enviaría órdenes que nadie escucha. Enlace de descarga:
